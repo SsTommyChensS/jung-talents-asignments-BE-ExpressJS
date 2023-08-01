@@ -10,6 +10,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 app.use(body_parser.json());
 
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true
+}));
+
 app.use('/api/', routers);
 
 app.listen(enviromentVariables.server_port, () => {
